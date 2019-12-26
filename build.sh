@@ -19,7 +19,11 @@ export ulx3s_dist=/dist/
  ./unzip_clean_generic.sh && \
  cd proj/lattice/ulx3s/universal_make_usbjoy/ && \
  for size in 25 45 85; do make clean; make FPGA_SIZE=${size} ulx3s_${size}f_minimig_usbjoy.bit; make FPGA_SIZE=${size} ulx3s_${size}f_minimig_usbjoy.bit; cp -a project/project_project.bit $ulx3s_dist/ulx3s_${size}f_minimig_usbjoy.bit; done && \
+ /opt/ulx3s/bin/ecpunpack --input $ulx3s_dist/ulx3s_25f_minimig_usbjoy.bit --textcfg /tmp/ulx3s_12f_minimig_usbjoy.config --idcode 0x41111043 && \
+ /opt/ulx3s/bin/ecppack --input /tmp/ulx3s_12f_minimig_usbjoy.config --bit $ulx3s_dist/ulx3s_12f_minimig_usbjoy.bit --compress --idcode 0x21111043 && \
  make clean && \
  cd ../universal_make_ps2kbd/ && \
  for size in 25 45 85; do make clean; make FPGA_SIZE=${size} ulx3s_${size}f_minimig_ps2kbd.bit; make FPGA_SIZE=${size} ulx3s_${size}f_minimig_ps2kbd.bit; cp -a project/project_project.bit $ulx3s_dist/ulx3s_${size}f_minimig_ps2kbd.bit; done && \
+ /opt/ulx3s/bin/ecpunpack --input $ulx3s_dist/ulx3s_25f_minimig_ps2kbd.bit --textcfg /tmp/ulx3s_12f_minimig_ps2kbd.config --idcode 0x41111043 && \
+ /opt/ulx3s/bin/ecppack --input /tmp/ulx3s_12f_minimig_ps2kbd.config --bit $ulx3s_dist/ulx3s_12f_minimig_ps2kbd.bit --compress --idcode 0x21111043 && \
  echo "[Success]"
