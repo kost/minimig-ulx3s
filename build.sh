@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export ulx3s_url=https://github.com/alpin3/ulx3s/releases/download/v2019.12.22/ulx3s-2019.12.22-linux-x86_64.tar.gz
+export ulx3s_url=https://github.com/alpin3/ulx3s/releases/download/v2019.12.26/ulx3s-2019.12.26-linux-x86_64.tar.gz
 export ulx3s_tmp=/tmp/ulx3s.tgz
 export ulx3s_dist=/dist/
 
@@ -11,7 +11,7 @@ export ulx3s_dist=/dist/
  ln -sf /opt/ulx3s-* /opt/ulx3s && \
  rm -f $ulx3s_tmp && \
  mkdir -p /mt/scratch/tmp/openfpga/prjtrellis/libtrellis/ && \
- cd /opt/ulx3s && \
+ cd /opt/ulx3s/bin && \
  for i in ecp*; do ln -sf `pwd`/$i /mt/scratch/tmp/openfpga/prjtrellis/libtrellis/$i; done && \
  cd $HOME && \
  git clone https://github.com/emard/Minimig_ECS.git && \
